@@ -61,31 +61,31 @@ class DebugService {
 
     _handleConnectivityTypeChange(connectionInfo) {
         let { type, effectiveType } = connectionInfo;
-        if (type === "none") {
-            this.hasBeenDisconnected = true;
-            this.seperator(`DISCONNECTED FROM INTERNET`);
-        } else {
-            const buildConnectionString = () => {
-                return `${type.toUpperCase()}${effectiveType === "unknown"
-                    ? ""
-                    : ` - ${effectiveType}`}`;
-            };
-            if (this.hasBeenDisconnected) {
-                this.seperator(
-                    `[NETINFO] RECONNECTED TO ${buildConnectionString()}`
-                );
-            } else {
-                if (this.connectionHasBeenEstablished) {
-                    this.seperator(
-                        `[NETINFO] CHANGED TO ${buildConnectionString()}`
-                    );
-                } else {
-                    this.seperator(
-                        `[NETINFO] CONNECTION TO ${buildConnectionString()}`
-                    );
-                }
-            }
-        }
+        // if (type === "none") {
+        //     this.hasBeenDisconnected = true;
+        //     this.seperator(`DISCONNECTED FROM INTERNET`);
+        // } else {
+        //     const buildConnectionString = () => {
+        //         return `${type.toUpperCase()}${effectiveType === "unknown"
+        //             ? ""
+        //             : ` - ${effectiveType}`}`;
+        //     };
+        //     if (this.hasBeenDisconnected) {
+        //         this.seperator(
+        //             `[NETINFO] RECONNECTED TO ${buildConnectionString()}`
+        //         );
+        //     } else {
+        //         if (this.connectionHasBeenEstablished) {
+        //             this.seperator(
+        //                 `[NETINFO] CHANGED TO ${buildConnectionString()}`
+        //             );
+        //         } else {
+        //             this.seperator(
+        //                 `[NETINFO] CONNECTION TO ${buildConnectionString()}`
+        //             );
+        //         }
+        //     }
+        // }
         this.connectionHasBeenEstablished = true;
     }
 
